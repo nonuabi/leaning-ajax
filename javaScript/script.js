@@ -13,13 +13,18 @@ function fetchRandomDogImage() {
   //   xhrRequest.open("get", "https://dog.ceo/api/breeds/image/random", true);
   //   xhrRequest.send();
 
-  $.ajax({
-    url: "https://dog.ceo/api/breeds/image/random",
-    method: "GET",
-    success: function (data) {
-      var imageURL = data.message;
-      $("#dog-img").attr("src", imageURL);
-    },
+  //   $.ajax({
+  //     url: "https://dog.ceo/api/breeds/image/random",
+  //     method: "GET",
+  //     success: function (data) {
+  //       var imageurl = data.message;
+  //       $("#dog-img").attr("src", imageurl);
+  //     },
+  //   });
+
+  $.get("https://dog.ceo/api/breeds/image/random", function (data) {
+    var imageurl = data.message;
+    $("#dog-img").attr("src", imageurl);
   });
 }
 
